@@ -1,1425 +1,1455 @@
 <head>
-    <script src="js/jquery-3.1.1.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="icon.ico">
+  <script src="js/jquery-3.1.1.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" href="icon.ico" />
 
-    
-<style>
-    
-    @font-face{ 
-        font-family: 'univers';
-        src: url('univers/UniversLTStdXBlack.eot');
-        src: url('univers/UniversLTStdXBlack.eot?#iefix') format('embedded-opentype'),
-             url('univers/UniversLTStdXBlack.woff') format('woff'),
-             url('univers/UniversLTStdXBlack.ttf') format('truetype'),
-             url('univers/UniversLTStdXBlack.svg#webfont') format('svg');
+  <style>
+    @font-face {
+      font-family: "univers";
+      src: url("univers/UniversLTStdXBlack.eot");
+      src: url("univers/UniversLTStdXBlack.eot?#iefix")
+          format("embedded-opentype"),
+        url("univers/UniversLTStdXBlack.woff") format("woff"),
+        url("univers/UniversLTStdXBlack.ttf") format("truetype"),
+        url("univers/UniversLTStdXBlack.svg#webfont") format("svg");
     }
-    
-    @font-face{ 
-        font-family: 'FinancierDisplay';
-        src: url('fd/FinancierDisplayWeb-Regular.eot');
-        src: url('fd/FinancierDisplayWeb-Regular.eot?#iefix') format('embedded-opentype'),
-             url('fd/FinancierDisplayWeb-Regular.woff') format('woff');
-             /*"url('univers/UniversLTStdXBlack.ttf') format('truetype'),
+
+    @font-face {
+      font-family: "FinancierDisplay";
+      src: url("fd/FinancierDisplayWeb-Regular.eot");
+      src: url("fd/FinancierDisplayWeb-Regular.eot?#iefix")
+          format("embedded-opentype"),
+        url("fd/FinancierDisplayWeb-Regular.woff") format("woff");
+      /*"url('univers/UniversLTStdXBlack.ttf') format('truetype'),
              url('univers/UniversLTStdXBlack.svg#webfont') format('svg');*/
     }
-    
-    @font-face{ 
-        font-family: 'FinancierDisplayItalic';
-        src: url('fd/FinancierDisplayWeb-RegularItalic.eot');
-        src: url('fd/FinancierDisplayWeb-RegularItalic.eot?#iefix') format('embedded-opentype'),
-             url('fd/FinancierDisplayWeb-RegularItalic.woff') format('woff');
-             /*"url('univers/UniversLTStdXBlack.ttf') format('truetype'),
+
+    @font-face {
+      font-family: "FinancierDisplayItalic";
+      src: url("fd/FinancierDisplayWeb-RegularItalic.eot");
+      src: url("fd/FinancierDisplayWeb-RegularItalic.eot?#iefix")
+          format("embedded-opentype"),
+        url("fd/FinancierDisplayWeb-RegularItalic.woff") format("woff");
+      /*"url('univers/UniversLTStdXBlack.ttf') format('truetype'),
              url('univers/UniversLTStdXBlack.svg#webfont') format('svg');*/
     }
-    
-    body, html{
-        text-align:center;
-        width:100%;
-        height:100%;
-        padding:0;
-        margin:0;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-        color:#000;
+
+    body,
+    html {
+      text-align: center;
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+      color: #000;
     }
-    
-    #scroll{
-        line-height: 1em;
-        border-radius: 10px;
-        font-size: 14px;
-        margin: 0;
-        position: absolute;
-        bottom: 4%;
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-            -ms-transform: translate(-50%);
-                transform: translate(-50%);
-        z-index: 4000000;
-        -webkit-transition: opacity 0.2s ease-in-out;
-        -o-transition: opacity 0.2s ease-in-out;
-        transition: opacity 0.2s ease-in-out;
-        width: 96%;
-        z-index: 99999999999999999;
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-        justify-content: space-between;
+
+    #scroll {
+      line-height: 1em;
+      border-radius: 10px;
+      font-size: 14px;
+      margin: 0;
+      position: absolute;
+      bottom: 4%;
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+        Icons;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+      z-index: 4000000;
+      -webkit-transition: opacity 0.2s ease-in-out;
+      -o-transition: opacity 0.2s ease-in-out;
+      transition: opacity 0.2s ease-in-out;
+      width: 96%;
+      z-index: 99999999999999999;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
     }
-    
-    #descriptions{
-        line-height: 1em;
-        border-radius: 10px;
-        font-size: 14px;
-        margin: 0;
-        position: fixed;
-        bottom: -100px;
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-            -ms-transform: translate(-50%);
-                transform: translate(-50%);
-        -webkit-transition: bottom 0.2s ease-in-out;
-        -o-transition: bottom 0.2s ease-in-out;
-        transition: bottom 0.2s ease-in-out;
-        width: 96%;
-        z-index: 99999999999999999;
-        mix-blend-mode: difference;
+
+    #descriptions {
+      line-height: 1em;
+      border-radius: 10px;
+      font-size: 14px;
+      margin: 0;
+      position: fixed;
+      bottom: -100px;
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+        Icons;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+      -webkit-transition: bottom 0.2s ease-in-out;
+      -o-transition: bottom 0.2s ease-in-out;
+      transition: bottom 0.2s ease-in-out;
+      width: 96%;
+      z-index: 99999999999999999;
+      mix-blend-mode: difference;
     }
-    
-    #descriptions p{
-        margin:0;   
+
+    #descriptions p {
+      margin: 0;
     }
-    
-    #intro{
-        position:relative;
-        z-index: 2000000000000000000
+
+    #intro {
+      position: relative;
+      z-index: 2000000000000000000;
     }
-    
-    #intro h1{
-        font-size: .9em;
-        font-weight: 400;
-        position: relative;
-        margin: 20px auto 0;
-        font-family: sans-serif;
+
+    #intro h1 {
+      font-size: 0.9em;
+      font-weight: 400;
+      position: relative;
+      margin: 20px auto 0;
+      font-family: sans-serif;
     }
-    
-    .intro-container{
-        width: 96%;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        z-index: 20000000;
-        display:block;
-        padding: 3% 0 0;
+
+    .intro-container {
+      width: 96%;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      z-index: 20000000;
+      display: block;
+      padding: 3% 0 0;
     }
-    
-    #intro p.name{
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons ;
-        margin: 0;
-        line-height: 1em;
-        display: inline-block; 
-        text-align: left;
-        font-size: 14px;
-        text-align: center;
+
+    #intro p.name {
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+        Icons;
+      margin: 0;
+      line-height: 1em;
+      display: inline-block;
+      text-align: left;
+      font-size: 14px;
+      text-align: center;
     }
-    
-    #intro p.name span{
-        /*font-family: 'FinancierDisplay';*/
+
+    #intro p.name span {
+      /*font-family: 'FinancierDisplay';*/
     }
-    
-    #contact{
-        width: 96%;
-        z-index: 20000000;
-        display:block;
-        position: fixed;
-        top:-100px;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-            -ms-transform: translate(-50%);
-                transform: translate(-50%);
-        -webkit-transition: top 0.2s ease-in-out;
-        -o-transition: top 0.2s ease-in-out;
-        transition: top 0.2s ease-in-out;
+
+    #contact {
+      width: 96%;
+      z-index: 20000000;
+      display: block;
+      position: fixed;
+      top: -100px;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+      -webkit-transition: top 0.2s ease-in-out;
+      -o-transition: top 0.2s ease-in-out;
+      transition: top 0.2s ease-in-out;
     }
-    
-    #contact p{
-        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
-        margin: 0;
-        line-height: 1em;
-        display: inline-block; 
-        text-align: left;
-        font-size: 14px;
-        text-align: center;
-        color:#000 !important;
+
+    #contact p {
+      font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+        Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+        Icons;
+      margin: 0;
+      line-height: 1em;
+      display: inline-block;
+      text-align: left;
+      font-size: 14px;
+      text-align: center;
+      color: #000 !important;
     }
-    
+
     /* Containers */
-    
-    figure{
-        margin:0;
-    }
-    
-    .container{
-        width:100%;
-        height:100vh;
-        position: relative;
-    }
-    
-    .scroll-container{
-        width:100%;
-        height:auto;
-        position: relative;
-    }
-    
-    .clear{
-        width:100%;
-        height:50vh;
-        position: relative;
-    }
-    
-    .container video.fixer{
-        position:fixed;
-        top:0;
-        right:0;
-        border-radius:2px;
-    }
-    
-    #gradient{
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6e6e8+0,f4f4f8+100&0+0,0.65+100 */ /* FF3.6-15 */
-        background: -webkit-linear-gradient(top, rgba(230,230,232,0) 0%,rgba(244,244,248,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-        background: -webkit-gradient(linear, left top, left bottom, from(rgba(230,230,232,0)),to(rgba(244,244,248,0.65)));
-        background: -o-linear-gradient(top, rgba(230,230,232,0) 0%,rgba(244,244,248,0.65) 100%);
-        background: linear-gradient(to bottom, rgba(230,230,232,0) 0%,rgba(244,244,248,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e6e6e8', endColorstr='#a6f4f4f8',GradientType=0 ); /* IE6-9 */
-    }
-    
-    .center{
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        opacity: 0;
-        visibility: hidden;
-        margin:0;
-        z-index:20;
-        height: 100vh;
-        width: 100%;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    .center figure{
-        margin:0;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    .center figure img{
-        max-width:650px;
-    }
-    
-    .container h2{
-        font-size: .75em;
-        font-family: sans-serif;
-        margin-top: 30px;
-        font-weight: 500;
-        position:absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        width:100%;
-        text-align: center;
-        z-index:0;
-        display:none;
-    }
-    
-    .container h2 span{
-        font-family: 'sabon';
-        font-style: oblique;
-    }
-    
-    .container video{
-        max-width:650px;
-        /*box-shadow: 0 0 60px #c3b6b6;*/
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-    }
-    
-    .container .center.show{
-        opacity:1;
-        visibility: visible;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    .scroll{
-        height:auto;
-        position: relative;
-        z-index: 20000;
-    }
-    
-    .scroll figure img{
-        max-width:600px;
-        /*box-shadow: 0 0 60px #afadad;*/
-    }
-    
-    .container p{
-        position:absolute;
-        bottom:0;
-        left: 50%;
-        -webkit-transform: translate(-50%);
-            -ms-transform: translate(-50%);
-                transform: translate(-50%);
-        font-family: 'Cousine', monospace;
-        color:black;
-    }
-    
-    .text{
-        width:100%;
-        text-align:center;
+
+    figure {
+      margin: 0;
     }
 
-    video#sci{
-        border:1px solid #312f2f;
-        max-width:550px;
-        -webkit-box-shadow: none;
-                box-shadow: none;
+    .container {
+      width: 100%;
+      height: 100vh;
+      position: relative;
     }
-    
-    video#browder-vid{
-        border:1px solid #312f2f;
-        max-width:550px;
-        -webkit-box-shadow: none;
-                box-shadow: none;
+
+    .scroll-container {
+      width: 100%;
+      height: auto;
+      position: relative;
     }
-    
-    .flex{
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
+
+    .clear {
+      width: 100%;
+      height: 50vh;
+      position: relative;
     }
-    
-    .flex img{
-        width:320px;
-        -ms-flex-item-align: center;
-            -ms-grid-row-align: center;
-            align-self: center;
+
+    .container video.fixer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      border-radius: 2px;
+    }
+
+    #gradient {
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6e6e8+0,f4f4f8+100&0+0,0.65+100 */ /* FF3.6-15 */
+      background: -webkit-linear-gradient(
+        top,
+        rgba(230, 230, 232, 0) 0%,
+        rgba(244, 244, 248, 0.65) 100%
+      ); /* Chrome10-25,Safari5.1-6 */
+      background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(rgba(230, 230, 232, 0)),
+        to(rgba(244, 244, 248, 0.65))
+      );
+      background: -o-linear-gradient(
+        top,
+        rgba(230, 230, 232, 0) 0%,
+        rgba(244, 244, 248, 0.65) 100%
+      );
+      background: linear-gradient(
+        to bottom,
+        rgba(230, 230, 232, 0) 0%,
+        rgba(244, 244, 248, 0.65) 100%
+      ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00e6e6e8', endColorstr='#a6f4f4f8',GradientType=0 ); /* IE6-9 */
+    }
+
+    .center {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      visibility: hidden;
+      margin: 0;
+      z-index: 20;
+      height: 100vh;
+      width: 100%;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .center figure {
+      margin: 0;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .center figure img {
+      max-width: 650px;
+    }
+
+    .container h2 {
+      font-size: 0.75em;
+      font-family: sans-serif;
+      margin-top: 30px;
+      font-weight: 500;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      width: 100%;
+      text-align: center;
+      z-index: 0;
+      display: none;
+    }
+
+    .container h2 span {
+      font-family: "sabon";
+      font-style: oblique;
+    }
+
+    .container video {
+      max-width: 650px;
+      /*box-shadow: 0 0 60px #c3b6b6;*/
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .container .center.show {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .scroll {
+      height: auto;
+      position: relative;
+      z-index: 20000;
+    }
+
+    .scroll figure img {
+      max-width: 600px;
+      /*box-shadow: 0 0 60px #afadad;*/
+    }
+
+    .container p {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      -webkit-transform: translate(-50%);
+      -ms-transform: translate(-50%);
+      transform: translate(-50%);
+      font-family: "Cousine", monospace;
+      color: black;
+    }
+
+    .text {
+      width: 100%;
+      text-align: center;
+    }
+
+    video#sci {
+      border: 1px solid #312f2f;
+      max-width: 550px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    video#browder-vid {
+      border: 1px solid #312f2f;
+      max-width: 550px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+    }
+
+    .flex {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+    }
+
+    .flex img {
+      width: 320px;
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
     }
 
     /*** RESTORING ***/
-    
-    #restoring-illo figure:hover + h2{
-        display: block;
+
+    #restoring-illo figure:hover + h2 {
+      display: block;
     }
-    
-    #restoring-video figure{
-        display:none;
+
+    #restoring-video figure {
+      display: none;
     }
-    
-    #cheer{
-        display:none;
-        z-index:50;
+
+    #cheer {
+      display: none;
+      z-index: 50;
     }
-    
+
     /**** NORTHFACE ****/
-    
-    #northface-graphic figure{
-        position: relative;
+
+    #northface-graphic figure {
+      position: relative;
     }
-    
-    #northface-graphic figure img#graphic{
-        max-width: 300px;
-        -webkit-box-shadow: 0 0 40px rgba(238, 61, 51, .3);
-                box-shadow: 0 0 40px rgba(238, 61, 51, .3);
+
+    #northface-graphic figure img#graphic {
+      max-width: 300px;
+      -webkit-box-shadow: 0 0 40px rgba(238, 61, 51, 0.3);
+      box-shadow: 0 0 40px rgba(238, 61, 51, 0.3);
     }
-    
-    
+
     /**** FAUDA ****/
-    
-    #fauda{
-        /*background-image: url(pattern.svg);*/
-        background-size:cover;
+
+    #fauda {
+      /*background-image: url(pattern.svg);*/
+      background-size: cover;
     }
-    
+
     /**** HOUR CHILDREN ****/
-    
-    #hour-slides-illo{
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        -ms-flex-line-pack: space-evenly;
-            align-content: space-evenly;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        max-width: 900px;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center;
+
+    #hour-slides-illo {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      -ms-flex-line-pack: space-evenly;
+      align-content: space-evenly;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      max-width: 900px;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
     }
-    
-    #hour-slides-illo.center figure{
-        position: relative;
-        top: auto;
-        left: auto;
-        -webkit-transform: none;
-            -ms-transform: none;
-                transform: none;
-        width: 49%;
-        height: auto;
+
+    #hour-slides-illo.center figure {
+      position: relative;
+      top: auto;
+      left: auto;
+      -webkit-transform: none;
+      -ms-transform: none;
+      transform: none;
+      width: 49%;
+      height: auto;
     }
-    
-    #hour-slides-illo.center figure img{
-        max-width: 100%;
+
+    #hour-slides-illo.center figure img {
+      max-width: 100%;
     }
-    
-    #hour-screens{
-        position: relative;
-        max-width: 600px;
-        margin: 40px auto 0;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
+
+    #hour-screens {
+      position: relative;
+      max-width: 600px;
+      margin: 40px auto 0;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
     }
-    
-    #hour-screens figure{
-        max-width:290px;
-        position:relative;
+
+    #hour-screens figure {
+      max-width: 290px;
+      position: relative;
     }
-    
-    #hour-screens figure img{
-        max-width:100%;
+
+    #hour-screens figure img {
+      max-width: 100%;
     }
-    
-    #hour-screens figure.left{
-        left:0;
+
+    #hour-screens figure.left {
+      left: 0;
     }
-    
-    #hour-screens figure.right{
-        right:0;
+
+    #hour-screens figure.right {
+      right: 0;
     }
-    
-    
+
     /**** NEPAL ****/
-    
-    #nepal-title.container{
-        height:300vh;
+
+    #nepal-title.container {
+      height: 300vh;
     }
-    
-    #nepal-title figure{
-        max-width:1000px;
+
+    #nepal-title figure {
+      max-width: 1000px;
     }
-    
-    #nepal .center figure{
-        height:50%;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        width:96%;
+
+    #nepal .center figure {
+      height: 50%;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 96%;
     }
-    
-    #nepal .center figure img{
-        -ms-flex-item-align: center;
-            -ms-grid-row-align: center;
-            align-self: center;
+
+    #nepal .center figure img {
+      -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
     }
-    
-    #nepal-title-illo-one{
-        height:100vh;
+
+    #nepal-title-illo-one {
+      height: 100vh;
     }
-    
-    #nepal-title-illo-two{
-        height:100vh;
+
+    #nepal-title-illo-two {
+      height: 100vh;
     }
-    
-    #nepal-title-illo-three{
-        height:100vh;
+
+    #nepal-title-illo-three {
+      height: 100vh;
     }
-    
-    #nepal-gallery figure{
-        margin-bottom: 40px;
+
+    #nepal-gallery figure {
+      margin-bottom: 40px;
     }
-    
-    #title-one{
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        visibility: hidden;
-        display:inline-block;
-        width:31%;
+
+    #title-one {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      visibility: hidden;
+      display: inline-block;
+      width: 31%;
     }
-    
-    #title-two{
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        visibility: hidden;
-        display:inline-block;
-        width:31%;
+
+    #title-two {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      visibility: hidden;
+      display: inline-block;
+      width: 31%;
     }
-    
-    #title-three{
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        visibility: hidden;
-        display:inline-block;
-        width:31%;
+
+    #title-three {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-pack: distribute;
+      justify-content: space-around;
+      visibility: hidden;
+      display: inline-block;
+      width: 31%;
     }
-    
-    #title-one.show{
-        visibility: visible;
+
+    #title-one.show {
+      visibility: visible;
     }
-    
-    #title-two.show{
-        visibility: visible;
+
+    #title-two.show {
+      visibility: visible;
     }
-    
-    #title-three.show{
-        visibility: visible;
+
+    #title-three.show {
+      visibility: visible;
     }
-    
-    
+
     /**** SCIENCE ****/
-    
-    #science-screens-illo figure img{
-        display:block;
-        margin:0 auto 40px;
+
+    #science-screens-illo figure img {
+      display: block;
+      margin: 0 auto 40px;
     }
-    
-    
+
     /**** COLLATERAL ****/
-    
-    #collateral-screens.container{
-        height:auto;
+
+    #collateral-screens.container {
+      height: auto;
     }
-    
-    #collateral-screens-illo figure img{
-        display:block;
-        margin:40px auto;
+
+    #collateral-screens-illo figure img {
+      display: block;
+      margin: 40px auto;
     }
-    
+
     /**** FREE MINDS ****/
-    
-    #freeminds-screens-illo figure img{
-        display:block;
-        margin:0 auto 40px;
+
+    #freeminds-screens-illo figure img {
+      display: block;
+      margin: 0 auto 40px;
     }
 
-    .show{
-        display:block;
+    .show {
+      display: block;
     }
-    
-    #freeminds-screens.container{
-        height:auto;
+
+    #freeminds-screens.container {
+      height: auto;
     }
-    
+
     /**** SPIKE ****/
-    
-    #spike-screens.container{
-        height:auto;
+
+    #spike-screens.container {
+      height: auto;
     }
-    
+
     /**** SUPPER CLUB ****/
-    
-    #supper-screens.container{
-        height:auto;
+
+    #supper-screens.container {
+      height: auto;
     }
-    
-    #supper-screens-illo{
-        display:-webkit-box;
-        display:-ms-flexbox;
-        display:flex;
-        -ms-flex-wrap: wrap;
-            flex-wrap: wrap;
-        max-width:700px;
-        -webkit-box-pack: justify;
-            -ms-flex-pack: justify;
-                justify-content: space-between;
-        margin:auto;
+
+    #supper-screens-illo {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      max-width: 700px;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      margin: auto;
     }
-    
-    #supper-screens-illo figure{
-        max-width:320px;
+
+    #supper-screens-illo figure {
+      max-width: 320px;
     }
-    
-    #supper-screens-illo figure img{
-        max-width:100%;
-        margin-bottom:40px;
-        -webkit-box-shadow: 0 0 40px rgba(0,0,0,0.3);
-                box-shadow: 0 0 40px rgba(0,0,0,0.3);
+
+    #supper-screens-illo figure img {
+      max-width: 100%;
+      margin-bottom: 40px;
+      -webkit-box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
     }
-    
+
     /**** HIGHER ED ****/
-    
-    #higher-ed div.center figure img{
-        max-width:500px;
+
+    #higher-ed div.center figure img {
+      max-width: 500px;
     }
-    
-    #higher-ed div.center figure{
-        padding:20px 30px;
-        background: #fff;
+
+    #higher-ed div.center figure {
+      padding: 20px 30px;
+      background: #fff;
     }
-    
+
     /*****/
-    
-    #sci-gallery figure img{
-        display:block;
-        max-width:400px;
-        /*box-shadow: 0 0 60px #000;*/
-        margin:20px auto;
+
+    #sci-gallery figure img {
+      display: block;
+      max-width: 400px;
+      /*box-shadow: 0 0 60px #000;*/
+      margin: 20px auto;
     }
-    
+
     figure.sci-gif {
-        display:none;
+      display: none;
     }
 
-    #browder{
-        position:absolute;
-        bottom:0;
-        left:200;
+    #browder {
+      position: absolute;
+      bottom: 0;
+      left: 200;
     }
-    
-    #browder figure img{
-        max-width:200px;
-        -webkit-box-shadow: none;
-                box-shadow: none;
+
+    #browder figure img {
+      max-width: 200px;
+      -webkit-box-shadow: none;
+      box-shadow: none;
     }
-    
+
     figure.spike-gif {
-        display:none;
-    }
-    
-    .text p{
-        display:none;
-    }
-     
-    #bloom1{
-        border:none;
-        visibility: hidden;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #bloom2{
-        border:none;
-        visibility: hidden;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #bloom3{
-        border:none;
-        visibility: hidden;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #bloom1.show{
-        visibility: visible;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #bloom2.show{
-        visibility: visible;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #bloom3.show{
-        visibility: visible;
-        -webkit-transition: all 0.2s ease-in-out;
-        -o-transition: all 0.2s ease-in-out;
-        transition: all 0.2s ease-in-out;
-    }
-    
-    #timeline-head img{
-        max-width: 700px;
-        width:90%;
-        /* box-shadow: 0 0 60px #c3b6b6; */
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
+      display: none;
     }
 
-    
-    #ender{
-        display:block;
-        min-height: 1px;
+    .text p {
+      display: none;
     }
-    
-    #end{
-        height:100vh;
-        width:90%;
-        margin:auto;
-        position:relative;
+
+    #bloom1 {
+      border: none;
+      visibility: hidden;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
-        
-    #end p{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-                transform: translate(-50%, -50%);
-        text-align: center;
-        line-height:1.3em;
-        color:#fff;
-        margin:0;
-        font-family: 'FinancierDisplay';
-        line-height: 1.3em;
-        font-size: 5.4vw;
+
+    #bloom2 {
+      border: none;
+      visibility: hidden;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
-    
-    #contact-end{
-        display:none;
+
+    #bloom3 {
+      border: none;
+      visibility: hidden;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
     }
-    
+
+    #bloom1.show {
+      visibility: visible;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    #bloom2.show {
+      visibility: visible;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    #bloom3.show {
+      visibility: visible;
+      -webkit-transition: all 0.2s ease-in-out;
+      -o-transition: all 0.2s ease-in-out;
+      transition: all 0.2s ease-in-out;
+    }
+
+    #timeline-head img {
+      max-width: 700px;
+      width: 90%;
+      /* box-shadow: 0 0 60px #c3b6b6; */
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    #ender {
+      display: block;
+      min-height: 1px;
+    }
+
+    #end {
+      height: 100vh;
+      width: 90%;
+      margin: auto;
+      position: relative;
+    }
+
+    #end p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      text-align: center;
+      line-height: 1.3em;
+      color: #fff;
+      margin: 0;
+      font-family: "FinancierDisplay";
+      line-height: 1.3em;
+      font-size: 5.4vw;
+    }
+
+    #contact-end {
+      display: none;
+    }
+
     @media (max-width: 900px) {
-        
-        #contact p{
-            display:none;
-        }
-        
-        #scroll{
-            display:none;
-        }
-        
-        #descriptions{
-            display:none;
-        }
-        
-        #intro p.name{
-            font-size:18px;
-        }
-        
-        .intro-container{
-            display:block;
-            margin: 100px auto 0;
-            width:90%;
-        }
-        
-        .center figure img{
-            max-width: none;
-        }
+      #contact p {
+        display: none;
+      }
 
-        .center{
-            position:relative;
-            left:initial;
-            top:initial;
-            height:auto;
-            -webkit-transform:none;
-                -ms-transform:none;
-                    transform:none;
-        }
-        
-        .center figure{
-            width:90%;
-            position:relative;
-            left:initial;
-            top:initial;
-            height:auto;
-            -webkit-transform:none;
-                -ms-transform:none;
-                    transform:none;
-            margin:0 auto 40px;
-        }
-        
-        .container .center video{
-            margin: 0 auto;
-        }
-        
-        #timeline-head img{
-            width:90%;
-            max-width: initial;
-            position:relative;
-            left:initial;
-            top:initial;
-            height:auto;
-            -webkit-transform:none;
-                -ms-transform:none;
-                    transform:none;
-            margin:0 auto 60px;
-        }
-        
-        .center figure img{
-            width:100%;
-        }
-        
-        .container{
-            height:auto;
-        }
-        
-        .container video{
-            max-width:90%;
-            position:relative;
-            left:initial;
-            top:initial;
-            height:auto;
-            -webkit-transform:none;
-                -ms-transform:none;
-                    transform:none;
-            margin:0 auto;
-            -webkit-box-shadow:initial;
-                    box-shadow:initial;
-        }
-        
-        .container .center{
-            opacity:1 !important;
-            visibility: visible !important;
-        }
-        
-        .scroll figure img{
-            width:90%;
-            -webkit-box-shadow:initial;
-                    box-shadow:initial;
-            max-width:90%;
-        }
-        
-        .text{
-            padding:100px 0 40px;
-            margin:0 auto;
-        }
-        
-        .text p{
-            font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
-            display:block;
-            margin:0 auto;
-            color: #767676;
-            font-size:18px;
-        }
-        
-        .text span{
-            margin-bottom: 8px;
-            display: block;
-            color: #000;
-        }
-        
-        .scroll figure{
-            margin:0 auto 40px;
-        }
-        
-        .clear{
-            height:0;
-        }
-        
-        #end p{
-            width: auto;
-            margin: 0 0 18px;
-            /* text-align: center; */
-            font-size: 40px;
-            line-height: 40px;
-            /* max-width: 310px; */
-        }
-        
-        #head{
-            background: #000;
-            max-width:90%;
-            margin:auto;
-            padding:20px 0;
-        }
-        
-        #contact-end{
-            display:block;
-            font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif", Icons;
-            padding:100px 0 100px;
-            font-size:18px;
-        }
-        
-        /**** PUBLIC ED ****/
-        
-        #higher-ed div.center figure{
-            padding:0;
-            padding: 20px 0;
-        }
-        
-        #restoring-screens-illo.center figure{
-            background-color: #e4e4eb;
-            margin-bottom:0;
-        }
-        
-        #restoring-video-illo{
-            margin: 0 auto 40px;
-        }
-        
-        /**** NORTHFACE ****/
-        
-        #northface-graphic{
-            background:#af2326;
-            width:90%;
-            margin:0 auto;
-            padding:80px 0 40px;
-        }
-        
-        #northface-title-illo.center figure{
-            margin-bottom:0;
-        }
-        
-        /**** FAUDA ****/
-        
-        #fauda{
-            max-width:90%;
-            margin:0 auto 40px;
-            padding:80px 0 80px;
-            background:#d6d3dc;
-        }
-        
-        /**** HOUR CHILDREN ****/
-        
-        #hour-title-illo figure{
-            margin-bottom:0;
-        }
-        
-        #hour-screens{
-            width:90%;
-            max-width:100%;
-            padding:80px 0 40px;
-            margin:0 auto;
-            background:#a0b0a7;
-        }
-        
-        #hour-gallery-illo{
-            margin:0 auto 40px;
-        }
-        
-        /**** NEPAL ****/
-        
-        #nepal-title.container{
-            height:auto;
-            max-width:90%;
-            background:#e5e5ea;
-            margin:0 auto;
-            padding:80px 0 40px;
-        }
-        
-        #nepal .center figure{
-            height:auto;
-            max-width:90%;
-        }
-        
-        #nepal-title-illo-one, #nepal-title-illo-two, #nepal-title-illo-three{
-            height:0;
-        }
-        
-        #title-one, #title-two, #title-three{
-            visibility: visible;
-        }
-        
-        #nepal-gallery{
-            width:90%;
-            max-width:90%;
-            padding:80px 0 40px;
-            margin:0 auto 40px;
-            background:#e8e9ed;
-        }
-        
-        /**** SCIENCE ****/
-        
-        #science-title-illo{
-            width:90%;
-            max-width:90%;
-            padding:0;
-            margin:0 auto ;
-            background: #000;
-        }
-        
-        #science-title-illo.center video{
-            border:none;
-            margin:0 auto
-        }
-        
-        #science-screens{
-            width:90%;
-            max-width:90%;
-            padding:80px 0 40px;
-            margin:0 auto 40px;
-            background:#39383d;
-        }
-        
-        /**** FREEMINDS ****/
-        
-        #freeminds-header-illo{
-            width:90%;
-            max-width:90%;
-            padding:0;
-            margin:0 auto;
-            background:#211919;
-        }
-        
-        #freeminds-header-illo.center video{
-            border:none;
-            margin:0 auto;
-        }
-        
-        #freeminds-screens{
-            width:90%;
-            max-width:90%;
-            padding:80px 0 40px;
-            margin:0 auto 40px;
-            background:#382f2f;
-        }
-        
-        /**** UNUSED SPACE ****/
-        
-        #unused-space-header-illo video{
-            max-width:90% !important;
-            margin:0 auto 40px;
-        }
-        
-        /**** COLLATERAL ****/
-        
-        #collateral-screens-illo figure img{
-            margin:0 auto;
-        }
-        
-        #collateral-screens-illo figure img.collateral-body{
-            width:80%;
-            max-width:80%;
-            padding:80px 5%;
-            margin:0 auto 40px;
-            background:#cfced6;
-        }
-        
-        /**** SPIKE ****/
-        
-        #spike-title-illo{
-            width:90%;
-            max-width:90%;
-            padding:80px 0;
-            margin:0 auto;
-            background:#211919;
-        }
-        
-        #spike-title-illo.center video{
-            border:none;
-            margin:0 auto;
-        }
-        
-        /**** BUILDING ****/
-        
-        #building-title-illo{
-            margin:0 auto 40px;
-        }
-        
-        /**** SUPPER CLUB ****/
-        
-        #supper-screens-illo{
-            max-width:90%;
-            width:90%;
-            background:#e2e2ec;
-            padding:80px 0 40px;
-            margin:0 auto 40px;
-        }
-        
-        #supper-screens-illo figure img{
-            margin-bottom:0;
-            -webkit-box-shadow: initial;
-                    box-shadow: initial;
-        }
-        
-        /**** HIGHER ED ****/
-        
-        #higher-ed{
-            max-width:90%;
-            width:90%;
-            background:#b17992;
-            margin:0 auto 0;
-            padding:80px 0 40px;
-        }
-        
+      #scroll {
+        display: none;
+      }
+
+      #descriptions {
+        display: none;
+      }
+
+      #intro p.name {
+        font-size: 18px;
+      }
+
+      .intro-container {
+        display: block;
+        margin: 100px auto 0;
+        width: 90%;
+      }
+
+      .center figure img {
+        max-width: none;
+      }
+
+      .center {
+        position: relative;
+        left: initial;
+        top: initial;
+        height: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+      }
+
+      .center figure {
+        width: 90%;
+        position: relative;
+        left: initial;
+        top: initial;
+        height: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        margin: 0 auto 40px;
+      }
+
+      .container .center video {
+        margin: 0 auto;
+      }
+
+      #timeline-head img {
+        width: 90%;
+        max-width: initial;
+        position: relative;
+        left: initial;
+        top: initial;
+        height: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        margin: 0 auto 60px;
+      }
+
+      .center figure img {
+        width: 100%;
+      }
+
+      .container {
+        height: auto;
+      }
+
+      .container video {
+        max-width: 90%;
+        position: relative;
+        left: initial;
+        top: initial;
+        height: auto;
+        -webkit-transform: none;
+        -ms-transform: none;
+        transform: none;
+        margin: 0 auto;
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+      }
+
+      .container .center {
+        opacity: 1 !important;
+        visibility: visible !important;
+      }
+
+      .scroll figure img {
+        width: 90%;
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+        max-width: 90%;
+      }
+
+      .text {
+        padding: 100px 0 40px;
+        margin: 0 auto;
+      }
+
+      .text p {
+        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+          Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+          Icons;
+        display: block;
+        margin: 0 auto;
+        color: #767676;
+        font-size: 18px;
+      }
+
+      .text span {
+        margin-bottom: 8px;
+        display: block;
+        color: #000;
+      }
+
+      .scroll figure {
+        margin: 0 auto 40px;
+      }
+
+      .clear {
+        height: 0;
+      }
+
+      #end p {
+        width: auto;
+        margin: 0 0 18px;
+        /* text-align: center; */
+        font-size: 40px;
+        line-height: 40px;
+        /* max-width: 310px; */
+      }
+
+      #head {
+        background: #000;
+        max-width: 90%;
+        margin: auto;
+        padding: 20px 0;
+      }
+
+      #contact-end {
+        display: block;
+        font-family: -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu,
+          Cantarell, "Open Sans", "Helvetica Neue", sans-serif, "Sans Serif",
+          Icons;
+        padding: 100px 0 100px;
+        font-size: 18px;
+      }
+
+      /**** PUBLIC ED ****/
+
+      #higher-ed div.center figure {
+        padding: 0;
+        padding: 20px 0;
+      }
+
+      #restoring-screens-illo.center figure {
+        background-color: #e4e4eb;
+        margin-bottom: 0;
+      }
+
+      #restoring-video-illo {
+        margin: 0 auto 40px;
+      }
+
+      /**** NORTHFACE ****/
+
+      #northface-graphic {
+        background: #af2326;
+        width: 90%;
+        margin: 0 auto;
+        padding: 80px 0 40px;
+      }
+
+      #northface-title-illo.center figure {
+        margin-bottom: 0;
+      }
+
+      /**** FAUDA ****/
+
+      #fauda {
+        max-width: 90%;
+        margin: 0 auto 40px;
+        padding: 80px 0 80px;
+        background: #d6d3dc;
+      }
+
+      /**** HOUR CHILDREN ****/
+
+      #hour-title-illo figure {
+        margin-bottom: 0;
+      }
+
+      #hour-screens {
+        width: 90%;
+        max-width: 100%;
+        padding: 80px 0 40px;
+        margin: 0 auto;
+        background: #a0b0a7;
+      }
+
+      #hour-gallery-illo {
+        margin: 0 auto 40px;
+      }
+
+      /**** NEPAL ****/
+
+      #nepal-title.container {
+        height: auto;
+        max-width: 90%;
+        background: #e5e5ea;
+        margin: 0 auto;
+        padding: 80px 0 40px;
+      }
+
+      #nepal .center figure {
+        height: auto;
+        max-width: 90%;
+      }
+
+      #nepal-title-illo-one,
+      #nepal-title-illo-two,
+      #nepal-title-illo-three {
+        height: 0;
+      }
+
+      #title-one,
+      #title-two,
+      #title-three {
+        visibility: visible;
+      }
+
+      #nepal-gallery {
+        width: 90%;
+        max-width: 90%;
+        padding: 80px 0 40px;
+        margin: 0 auto 40px;
+        background: #e8e9ed;
+      }
+
+      /**** SCIENCE ****/
+
+      #science-title-illo {
+        width: 90%;
+        max-width: 90%;
+        padding: 0;
+        margin: 0 auto;
+        background: #000;
+      }
+
+      #science-title-illo.center video {
+        border: none;
+        margin: 0 auto;
+      }
+
+      #science-screens {
+        width: 90%;
+        max-width: 90%;
+        padding: 80px 0 40px;
+        margin: 0 auto 40px;
+        background: #39383d;
+      }
+
+      /**** FREEMINDS ****/
+
+      #freeminds-header-illo {
+        width: 90%;
+        max-width: 90%;
+        padding: 0;
+        margin: 0 auto;
+        background: #211919;
+      }
+
+      #freeminds-header-illo.center video {
+        border: none;
+        margin: 0 auto;
+      }
+
+      #freeminds-screens {
+        width: 90%;
+        max-width: 90%;
+        padding: 80px 0 40px;
+        margin: 0 auto 40px;
+        background: #382f2f;
+      }
+
+      /**** UNUSED SPACE ****/
+
+      #unused-space-header-illo video {
+        max-width: 90% !important;
+        margin: 0 auto 40px;
+      }
+
+      /**** COLLATERAL ****/
+
+      #collateral-screens-illo figure img {
+        margin: 0 auto;
+      }
+
+      #collateral-screens-illo figure img.collateral-body {
+        width: 80%;
+        max-width: 80%;
+        padding: 80px 5%;
+        margin: 0 auto 40px;
+        background: #cfced6;
+      }
+
+      /**** SPIKE ****/
+
+      #spike-title-illo {
+        width: 90%;
+        max-width: 90%;
+        padding: 80px 0;
+        margin: 0 auto;
+        background: #211919;
+      }
+
+      #spike-title-illo.center video {
+        border: none;
+        margin: 0 auto;
+      }
+
+      /**** BUILDING ****/
+
+      #building-title-illo {
+        margin: 0 auto 40px;
+      }
+
+      /**** SUPPER CLUB ****/
+
+      #supper-screens-illo {
+        max-width: 90%;
+        width: 90%;
+        background: #e2e2ec;
+        padding: 80px 0 40px;
+        margin: 0 auto 40px;
+      }
+
+      #supper-screens-illo figure img {
+        margin-bottom: 0;
+        -webkit-box-shadow: initial;
+        box-shadow: initial;
+      }
+
+      /**** HIGHER ED ****/
+
+      #higher-ed {
+        max-width: 90%;
+        width: 90%;
+        background: #b17992;
+        margin: 0 auto 0;
+        padding: 80px 0 40px;
+      }
     }
-    
+
     @media (max-width: 660px) {
-        
-        .text{
-            max-width:90%;
-        }
-        
-        .center figure{
-            width:100%;
-        }
-        
-        .container video{
-            width:100%;
-            max-width:100%;
-        }
-        
-        .scroll figure img{
-            width:100%;
-            max-width:100%;
-        }
-        
-        /* EDUCATION */
-        
-        #restoring-screens-illo.center figure{
-            padding:20px 0;
-        }
-        
-        /* NORTHFACE */
-        
-        #northface-graphic{
-            width:100%;
-        }
-        
-        /* FAUDA */
-        
-        #fauda{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #fauda .container{
-            width:90%;
-            max-width:90%;
-            margin:auto;
-        }
-        
-        /* HOUR CHILDREN */
-        
-        #hour-screens{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #hour-screens figure{
-            max-width: 240px;
-        }
-        
-        /* NEPAL */
-        
-        #nepal-title.container{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #nepal-gallery{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #nepal-gallery figure{
-            width:90%;
-            max-width:90%;
-        }
-        
-        /* SCIENCE */
-        
-        #science-title-illo{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #science-screens{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #science-screens figure{
-            width:90%;
-            max-width:90%;
-        }
-        
-        /* FREEMINDS */
-        
-        #freeminds-header-illo{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #freeminds-screens{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #freeminds-screens figure{
-            width:90%;
-            max-width:90%;
-        }
-        
-        /* UNUSED SPACE */
-        
-        #unused-space-header-illo video{
-            max-width:100% !important;
-        }
-        
-        /* COLLATERAL */
-        
-        #collateral-screens-illo figure img.collateral-body{
-            width: 90%;
-            max-width: 90%;
-            padding: 80px 5%;
-        }
-        
-        /* SPIKE */
-        
-        #spike-title-illo{
-            width:100%;
-            max-width:100%;
-        }
-        
-        /* SUPPER CLUB */
-        
-        #supper-screens-illo{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #supper-screens-illo figure{
-            max-width: 240px;
-        }
-        
-        
-        
-        /* HIGHER EDUCATION */
-        
-        #higher-ed{
-            width:100%;
-            max-width:100%;
-        }
-        
-        #higher-ed .container{
-            width:90%;
-            max-width:90%;
-            margin:auto;
-        }
-        
+      .text {
+        max-width: 90%;
+      }
+
+      .center figure {
+        width: 100%;
+      }
+
+      .container video {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      .scroll figure img {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* EDUCATION */
+
+      #restoring-screens-illo.center figure {
+        padding: 20px 0;
+      }
+
+      /* NORTHFACE */
+
+      #northface-graphic {
+        width: 100%;
+      }
+
+      /* FAUDA */
+
+      #fauda {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #fauda .container {
+        width: 90%;
+        max-width: 90%;
+        margin: auto;
+      }
+
+      /* HOUR CHILDREN */
+
+      #hour-screens {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #hour-screens figure {
+        max-width: 240px;
+      }
+
+      /* NEPAL */
+
+      #nepal-title.container {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #nepal-gallery {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #nepal-gallery figure {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      /* SCIENCE */
+
+      #science-title-illo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #science-screens {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #science-screens figure {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      /* FREEMINDS */
+
+      #freeminds-header-illo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #freeminds-screens {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #freeminds-screens figure {
+        width: 90%;
+        max-width: 90%;
+      }
+
+      /* UNUSED SPACE */
+
+      #unused-space-header-illo video {
+        max-width: 100% !important;
+      }
+
+      /* COLLATERAL */
+
+      #collateral-screens-illo figure img.collateral-body {
+        width: 90%;
+        max-width: 90%;
+        padding: 80px 5%;
+      }
+
+      /* SPIKE */
+
+      #spike-title-illo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      /* SUPPER CLUB */
+
+      #supper-screens-illo {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #supper-screens-illo figure {
+        max-width: 240px;
+      }
+
+      /* HIGHER EDUCATION */
+
+      #higher-ed {
+        width: 100%;
+        max-width: 100%;
+      }
+
+      #higher-ed .container {
+        width: 90%;
+        max-width: 90%;
+        margin: auto;
+      }
     }
-    
+
     @media (max-width: 540px) {
-        
-        /* NEPAL */
-        
-        #title-one, #title-two{
-            display:none;
-        }
-        
-        #title-three{
-            width:100%;
-        }
-        
-        /* HOUR CHILDREN */
-        
-        #hour-screens figure.left{
-            display:none;
-        }
-        
-        #hour-screens figure{
-            max-width:300px;
-        }
-        
-        /* SUPPER CLUB */
-        
-        #supper-screens-illo{
-            display:block;
-        }
-        
-        #supper-screens-illo figure{
-            max-width:300px;
-        }
-        
-        img#blondi{
-            display:none;
-        }
-        
-        img#max{
-            display:none;
-        }
-        
+      /* NEPAL */
+
+      #title-one,
+      #title-two {
+        display: none;
+      }
+
+      #title-three {
+        width: 100%;
+      }
+
+      /* HOUR CHILDREN */
+
+      #hour-screens figure.left {
+        display: none;
+      }
+
+      #hour-screens figure {
+        max-width: 300px;
+      }
+
+      /* SUPPER CLUB */
+
+      #supper-screens-illo {
+        display: block;
+      }
+
+      #supper-screens-illo figure {
+        max-width: 300px;
+      }
+
+      img#blondi {
+        display: none;
+      }
+
+      img#max {
+        display: none;
+      }
     }
-        
-    
-</style>
+  </style>
 </head>
 
 <body>
+  <div id="intro">
+    <div class="intro-container">
+      <p class="name"><span>Devin Rochford,</span> Designer & Art Director</p>
+    </div>
+  </div>
 
-    <div id="intro">
-        <div class="intro-container">
-            <p class="name"><span>Devin Rochford,</span> Designer & Art Director</p>
-        </div>
-    </div>
-    
-    <div id="contact">
-        <p>tdevinrochford@gmail.com</p>
-    </div>
-    
-    <div id="scroll">
-        <span>&darr;<br>&darr;<br>&darr;</span>
+  <div id="contact">
+    <p>tdevinrochford@gmail.com</p>
+  </div>
 
-        <span>&darr;<br>&darr;<br>&darr;</span>
-    </div>
-    
-    <div id="descriptions"><p></p></div>
-    
-    <div id="grey" class="section">
-        
-        <!--- Restoring The Promise of Public Education --->
-        <div class="text">
-            <p><span>Restoring the Promise of Public Education</span>Art director, Developer</p>      
-        </div>
-        
-        <div id="restoring">
-            <div id="restoring-screens" class="container">
-                <div id="restoring-screens-illo" class="center show">
-                    <figure><img src="rest-2.png"></figure>
-                </div>
-            </div>
-            <div id="restoring-video" class="container">
-                <div id="restoring-video-illo" class="center">
-                    <!--<video autoplay loop muted playsinline><source src="allstate-window_1.mp4"></video>-->
-                    <video autoplay loop muted playsinline><source src="public-ed/public-ed-video.mp4"></video>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="black" class="section">
-        
-        <!--- Northface --->
-        <div class="text">
-            <p><span>Two Women Break Boundaries in the<br>Most Isolated Corner of the World</span> Art Direction, Design</p>
-        </div>
-        
-        <div id="northface">
-            <div id="northface-title" class="container">
-                <div id="northface-title-illo" class="center">
-                    <figure><img src="northface/screen-1-intro.jpg"></figure>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div id="northface-graphic" class="scroll">
-                <figure><img id="graphic" src="northface/graphic.jpg"></figure>
-                <!--<figure><img id="full" src="northface/full.jpg"></figure>-->
-            </div>
-            <div id="northface-screen" class="container">
-                <div id="northface-screen-illo" class="center">
-                    <figure><img src="northface/screen-2-arrival.jpg"></figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="beige" class="section">
-        
-        <!--- A Land Divided --->
-        <div class="text">
-            <p><span>A Land Divided</span> Art Direction, Design</p>      
-        </div>
-        
-        <div id="fauda">
-            <div id="fauda-title" class="container">
-                <div id="fauda-title-illo" class="center">
-                    <figure><img src="fauda/page-title.jpg"></figure>
-                </div>
-            </div>
-            <div id="fauda-menu" class="container">
-                <div id="fauda-menu-illo" class="center">
-                    <figure><img src="fauda/page-menu.jpg"></figure>
-                </div>
-            </div>
-            <div id="fauda-voices" class="container">
-                <div id="fauda-voices-illo" class="center">
-                    <figure><img src="fauda/page-voices.jpg"></figure>
-                </div>
-            </div>
-            <div id="fauda-map" class="container">
-                <div id="fauda-map-illo" class="center">
-                    <figure><img src="fauda/page-map.jpg"></figure>
-                </div>
-            </div>
-            <div id="fauda-video" class="container">
-                <div id="fauda-video-illo" class="center">
-                    <video autoplay loop muted playsinline><source src="fauda/fauda-2.mp4"></video>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="gunmetal" class="section">
+  <div id="scroll">
+    <span>&darr;<br />&darr;<br />&darr;</span>
 
-        <!--- Hour Children --->
-        
-        <div class="text">
-            <p><span>Keeping Families Together<br>in the Aftermath of Prison</span> Art Direction, Design</p>      
+    <span>&darr;<br />&darr;<br />&darr;</span>
+  </div>
+
+  <div id="descriptions"><p></p></div>
+
+  <div id="grey" class="section">
+    <!--- Restoring The Promise of Public Education --->
+    <div class="text">
+      <p>
+        <span>Restoring the Promise of Public Education</span>Art director,
+        Developer
+      </p>
+    </div>
+
+    <div id="restoring">
+      <div id="restoring-screens" class="container">
+        <div id="restoring-screens-illo" class="center show">
+          <figure><img src="rest-2.png" /></figure>
         </div>
-        
-        <div id="hour">
-            <div class="clear"></div>
-            <div id="hour-title" class="scroll">
-                <div id="hour-title-illo">
-                    <figure><img src="hour-children/intro.jpg"></figure>
-                </div>
-            </div>
-            <!---<div id="hour-slides" class="container">
+      </div>
+      <div id="restoring-video" class="container">
+        <div id="restoring-video-illo" class="center">
+          <!--<video autoplay loop muted playsinline><source src="allstate-window_1.mp4"></video>-->
+          <video autoplay loop muted playsinline>
+            <source src="public-ed/public-ed-video.mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="black" class="section">
+    <!--- Northface --->
+    <div class="text">
+      <p>
+        <span
+          >Two Women Break Boundaries in the<br />Most Isolated Corner of the
+          World</span
+        >
+        Art Direction, Design
+      </p>
+    </div>
+
+    <div id="northface">
+      <div id="northface-title" class="container">
+        <div id="northface-title-illo" class="center">
+          <figure><img src="northface/screen-1-intro.jpg" /></figure>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="northface-graphic" class="scroll">
+        <figure><img id="graphic" src="northface/graphic.jpg" /></figure>
+        <!--<figure><img id="full" src="northface/full.jpg"></figure>-->
+      </div>
+      <div id="northface-screen" class="container">
+        <div id="northface-screen-illo" class="center">
+          <figure><img src="northface/screen-2-arrival.jpg" /></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="beige" class="section">
+    <!--- A Land Divided --->
+    <div class="text">
+      <p><span>A Land Divided</span> Art Direction, Design</p>
+    </div>
+
+    <div id="fauda">
+      <div id="fauda-title" class="container">
+        <div id="fauda-title-illo" class="center">
+          <figure><img src="fauda/page-title.jpg" /></figure>
+        </div>
+      </div>
+      <div id="fauda-menu" class="container">
+        <div id="fauda-menu-illo" class="center">
+          <figure><img src="fauda/page-menu.jpg" /></figure>
+        </div>
+      </div>
+      <div id="fauda-voices" class="container">
+        <div id="fauda-voices-illo" class="center">
+          <figure><img src="fauda/page-voices.jpg" /></figure>
+        </div>
+      </div>
+      <div id="fauda-map" class="container">
+        <div id="fauda-map-illo" class="center">
+          <figure><img src="fauda/page-map.jpg" /></figure>
+        </div>
+      </div>
+      <div id="fauda-video" class="container">
+        <div id="fauda-video-illo" class="center">
+          <video autoplay loop muted playsinline>
+            <source src="fauda/fauda-2.mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="gunmetal" class="section">
+    <!--- Hour Children --->
+
+    <div class="text">
+      <p>
+        <span>Keeping Families Together<br />in the Aftermath of Prison</span>
+        Art Direction, Design
+      </p>
+    </div>
+
+    <div id="hour">
+      <div class="clear"></div>
+      <div id="hour-title" class="scroll">
+        <div id="hour-title-illo">
+          <figure><img src="hour-children/intro.jpg" /></figure>
+        </div>
+      </div>
+      <!---<div id="hour-slides" class="container">
                 <div id="hour-slides-illo" class="center">
                     <figure><img src="hour-children/portraits-gaby.jpg"></figure>
                     <figure><img src="hour-children/portraits-davania.jpg"></figure>
@@ -1427,268 +1457,316 @@
                     <figure><img src="hour-children/portraits-sara.jpg"></figure>
                 </div>
             </div>--->
-            <div id="hour-screens" class="scroll">
-                <figure class="left"><img id="graphic" src="hour-children/screen-one.jpg"></figure>
-                <figure class="right"><img id="graphic" src="hour-children/screen-two.jpg"></figure>
-            </div>
-            <div id="hour-gallery" class="container">
-                <div id="hour-gallery-illo" class="center">
-                    <video autoplay loop muted playsinline><source src="hour-children/gallery.mp4"></video>
-                </div>
-            </div>
+      <div id="hour-screens" class="scroll">
+        <figure class="left">
+          <img id="graphic" src="hour-children/screen-one.jpg" />
+        </figure>
+        <figure class="right">
+          <img id="graphic" src="hour-children/screen-two.jpg" />
+        </figure>
+      </div>
+      <div id="hour-gallery" class="container">
+        <div id="hour-gallery-illo" class="center">
+          <video autoplay loop muted playsinline>
+            <source src="hour-children/gallery.mp4" />
+          </video>
         </div>
-        
+      </div>
     </div>
-    
-    <div id="maroon" class="section">
-    
-        <!--- Nepal, One Year Later --->
-       
-        <div class="text">
-            <p><span>Nepal, One Year Later</span> Art director, Developer</p>      
-        </div>
-        
-        <div id="nepal">
-            <div id="nepal-title" class="container">
-                    <div id="nepal-title-illo-one"></div>
-                    <div id="nepal-title-illo-two"></div>
-                    <div id="nepal-title-illo-three"></div>
-                    <div class="center" id="nepal-title-center">
-                        <figure><img id="title-one" src="nepal/part-1.jpg"><img id="title-two" src="nepal/part-2.jpg"><img id="title-three" src="nepal/part-3.jpg"></figure>
-                    </div>
-            </div>
-            
-            <div id="nepal-video" class="container">
-                <div class="center" id="cath-amb">
-                    <video autoplay loop muted playsinline><source src="heritage-montage-FIN.mp4"></video>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div id="nepal-gallery" class="scroll">
-                <figure><img id="graphic" src="nepal/gallery-1.jpg"></figure>
-                <figure><img id="graphic" src="nepal/video-container.jpg"></figure>
-                <figure><img id="graphic" src="nepal/maps.jpg"></figure>
-            </div>
-        </div>
+  </div>
 
-    </div>
-    
-    <div id="black-two" class="section">
-        
-        <!--- Science of the Thrill --->
-        
-        <div class="text">
-            <p><span>The Science of the Thrill</span> Art director, Developer</p>      
-        </div>
-        
-        <div id="science">
-            <div id="science-title" class="container">
-                <div id="science-title-illo" class="center">
-                    <figure class="sci-gif"><img src="sci-mob.gif"></figure>
-                    <video id="sci-1" style="max-width:600px" autoplay loop muted playsinline><source src="sci.mp4"></video>
-                </div>
-            </div>
+  <div id="maroon" class="section">
+    <!--- Nepal, One Year Later --->
 
-            <div class="clear">
-            </div>
-
-            <div id="science-screens" class="container">
-                <div id="science-screens-illo" class="scroll">
-                    <figure><img src="sci-1.jpg"> <img src="sci-2.jpg"> <!--<img src="sci-3.jpg">--></figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="purple" class="section">
-        
-        <!--- Freeminds --->
-        
-        <div class="text">
-            <p><span>A Criminal Past, an Unwritten Future</span> Art director, Developer</p>      
-        </div>
-        
-        <div id="freeminds">
-            <div id="freeminds-header" class="container">
-                <div id="freeminds-header-illo" class="center">
-                    <div class="video-wrapper">
-                        <video style="max-width:600px" autoplay loop muted playsinline><source src="freeminds/freeminds.mp4"></video>
-                    </div>
-                </div>
-            </div>
-
-            <div class="clear"></div>
-
-            <div id="freeminds-screens" class="container">
-                <div id="freeminds-screens-illo" class="scroll">
-                    <figure>
-                        <img src="freeminds/screen-prison.jpg">
-                        <img src="freeminds/screen-pullquote.jpg"> 
-                        <img src="freeminds/screen-return.jpg"> 
-                    </figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="brown" class="section">
-        
-        <!--- Unused Space --->
-        
-        <div class="text">
-            <p><span>In Unused Space, Endless Potential</span> Art director, Developer</p>      
-        </div>
-        
-        <div id="unused-space">
-            <div id="unused-space-header" class="container">
-                <div id="unused-space-header-illo" class="center">
-                    <video style="max-width:600px" autoplay loop muted playsinline><source src="unused-space/unusedspace.mp4"></video>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="light-grey" class="section">
-        
-        <!--- Collateral --->
-        
-        <div class="text">
-            <p><span>Is There Hope for the Institutions<br>that have Failed Us?</span> Art director, Developer</p>      
-        </div>
-        
-        <div id="collateral">
-            <div class="clear"></div>
-            <div id="collateral-screens" class="container">
-                <div id="collateral-screens-illo" class="scroll">
-                    <figure>
-                        <img src="collateral/header.jpg">
-                        <img class="collateral-body" src="collateral/body-illustration.jpg"> 
-                    </figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    
-    <div id="black-three" class="section">
-        
-        <!--- This is Solitary --->
-        
-        <div class="text">
-            <p><span>This is Solitary</span> Art Director</p>      
-        </div>
-        
-        <div id="spike">
-            <div id="spike-title" class="container">
-                <div id="spike-title-illo" class="center">
-                    <video autoplay loop muted playsinline id="browder-vid" style="width:300px"><source src="spike.mp4"></video>
-                </div>
-            </div>
-            <div class="clear"></div>
-            <div id="spike-screens" class="container">
-                <div id="spike-screens-illo" class="scroll">
-                    <figure><img src="browder-panels.jpg"></figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="eggshell" class="section">
-        
-        <!--- Designing Impact --->
-        
-        <div class="text">
-            <p><span>Designing Impact</span> Art Director, Developer</p>      
-        </div>
-        
-        <div id="building">
-            <div id="building-title" class="container">
-                <div id="building-title-illo" class="center">
-                    <video autoplay loop muted playsinline ><source src="building/building.mp4"></video>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="midnight" class="section">
-        
-        <!--- The Supperclub of Hell's Kitchen --->
-        
-        <div class="text">
-            <p><span>The Supper Club of Hell's Kitchen</span> Art Director, Developer</p>      
-        </div>
-        
-        <div id="supper">
-            <div id="supper-title" class="container">
-                <div id="supper-title-illo" class="center">
-                    <video autoplay loop muted playsinline ><source src="supper/header-interview.mp4"></video>
-                </div>
-            </div>
-            
-            <div class="clear"></div>
-            
-            <div id="supper-screens" class="container">
-                <div id="supper-screens-illo" class="scroll">
-                    <figure><img id="blondi" src="supper/page-blondi.jpg"></figure>
-                    <figure><img id="leonard" src="supper/page-leonard.jpg"></figure>
-                    <figure><img id="beauty" src="supper/page-genuwine-beauty.jpg"></figure>
-                    <figure><img id="max" src="supper/page-max.jpg"></figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="robinsegg" class="section">
-        
-        <!--- Higher Education --->
-        
-        <div class="text">
-            <p><span>Higher Education Within Reach</span> Art Director</p>      
-        </div>
-        
-
-        <div id="higher-ed">
-            <div id="higher-ed-one" class="container">
-                <div id="higher-ed-one-illo" class="center">
-                    <figure><img src="gates-college-neighborhood/gates-college-collective.jpg"></figure>
-                </div>
-            </div>
-            <div id="higher-ed-two" class="container">
-                <div id="higher-ed-two-illo" class="center">
-                    <figure><img src="gates-college-neighborhood/gates-college-neighborhood.jpg"></figure>
-                </div>
-            </div>
-            <div id="higher-ed-three" class="container">
-                <div id="higher-ed-three-illo" class="center">
-                    <figure><img src="gates-college-neighborhood/gates-the-course.jpg"></figure>
-                </div>
-            </div>
-            <div id="higher-ed-four" class="container">
-                <div id="higher-ed-four-illo" class="center">
-                    <figure><img src="gates-college-neighborhood/gates-tech.jpg"></figure>
-                </div>
-            </div>
-        </div>
-        
-    </div>
-    
-    <div id="ender">
+    <div class="text">
+      <p><span>Nepal, One Year Later</span> Art director, Developer</p>
     </div>
 
-    <div id="contact-end">
-        <p>tdevinrochford@gmail.com</p>
+    <div id="nepal">
+      <div id="nepal-title" class="container">
+        <div id="nepal-title-illo-one"></div>
+        <div id="nepal-title-illo-two"></div>
+        <div id="nepal-title-illo-three"></div>
+        <div class="center" id="nepal-title-center">
+          <figure>
+            <img id="title-one" src="nepal/part-1.jpg" /><img
+              id="title-two"
+              src="nepal/part-2.jpg"
+            /><img id="title-three" src="nepal/part-3.jpg" />
+          </figure>
+        </div>
+      </div>
+
+      <div id="nepal-video" class="container">
+        <div class="center" id="cath-amb">
+          <video autoplay loop muted playsinline>
+            <source src="heritage-montage-FIN.mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="nepal-gallery" class="scroll">
+        <figure><img id="graphic" src="nepal/gallery-1.jpg" /></figure>
+        <figure><img id="graphic" src="nepal/video-container.jpg" /></figure>
+        <figure><img id="graphic" src="nepal/maps.jpg" /></figure>
+      </div>
+    </div>
+  </div>
+
+  <div id="black-two" class="section">
+    <!--- Science of the Thrill --->
+
+    <div class="text">
+      <p><span>The Science of the Thrill</span> Art director, Developer</p>
     </div>
 
-    <!---<div id="part-five" class="section">
+    <div id="science">
+      <div id="science-title" class="container">
+        <div id="science-title-illo" class="center">
+          <figure class="sci-gif"><img src="sci-mob.gif" /></figure>
+          <video
+            id="sci-1"
+            style="max-width:600px"
+            autoplay
+            loop
+            muted
+            playsinline
+          >
+            <source src="sci.mp4" />
+          </video>
+        </div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div id="science-screens" class="container">
+        <div id="science-screens-illo" class="scroll">
+          <figure>
+            <img src="sci-1.jpg" /> <img src="sci-2.jpg" />
+            <!--<img src="sci-3.jpg">-->
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="purple" class="section">
+    <!--- Freeminds --->
+
+    <div class="text">
+      <p>
+        <span>A Criminal Past, an Unwritten Future</span> Art director,
+        Developer
+      </p>
+    </div>
+
+    <div id="freeminds">
+      <div id="freeminds-header" class="container">
+        <div id="freeminds-header-illo" class="center">
+          <div class="video-wrapper">
+            <video style="max-width:600px" autoplay loop muted playsinline>
+              <source src="freeminds/freeminds.mp4" />
+            </video>
+          </div>
+        </div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div id="freeminds-screens" class="container">
+        <div id="freeminds-screens-illo" class="scroll">
+          <figure>
+            <img src="freeminds/screen-prison.jpg" />
+            <img src="freeminds/screen-pullquote.jpg" />
+            <img src="freeminds/screen-return.jpg" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="brown" class="section">
+    <!--- Unused Space --->
+
+    <div class="text">
+      <p>
+        <span>In Unused Space, Endless Potential</span> Art director, Developer
+      </p>
+    </div>
+
+    <div id="unused-space">
+      <div id="unused-space-header" class="container">
+        <div id="unused-space-header-illo" class="center">
+          <video style="max-width:600px" autoplay loop muted playsinline>
+            <source src="unused-space/unusedspace-sml.mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="light-grey" class="section">
+    <!--- Collateral --->
+
+    <div class="text">
+      <p>
+        <span
+          >Is There Hope for the Institutions<br />that have Failed Us?</span
+        >
+        Art director, Developer
+      </p>
+    </div>
+
+    <div id="collateral">
+      <div class="clear"></div>
+      <div id="collateral-screens" class="container">
+        <div id="collateral-screens-illo" class="scroll">
+          <figure>
+            <img src="collateral/header.jpg" />
+            <img
+              class="collateral-body"
+              src="collateral/body-illustration.jpg"
+            />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="black-three" class="section">
+    <!--- This is Solitary --->
+
+    <div class="text">
+      <p><span>This is Solitary</span> Art Director</p>
+    </div>
+
+    <div id="spike">
+      <div id="spike-title" class="container">
+        <div id="spike-title-illo" class="center">
+          <video
+            autoplay
+            loop
+            muted
+            playsinline
+            id="browder-vid"
+            style="width:300px"
+          >
+            <source src="spike.mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div id="spike-screens" class="container">
+        <div id="spike-screens-illo" class="scroll">
+          <figure><img src="browder-panels.jpg" /></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="eggshell" class="section">
+    <!--- Designing Impact --->
+
+    <div class="text">
+      <p><span>Designing Impact</span> Art Director, Developer</p>
+    </div>
+
+    <div id="building">
+      <div id="building-title" class="container">
+        <div id="building-title-illo" class="center">
+          <video autoplay loop muted playsinline>
+            <source src="building/building.mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="midnight" class="section">
+    <!--- The Supperclub of Hell's Kitchen --->
+
+    <div class="text">
+      <p>
+        <span>The Supper Club of Hell's Kitchen</span> Art Director, Developer
+      </p>
+    </div>
+
+    <div id="supper">
+      <div id="supper-title" class="container">
+        <div id="supper-title-illo" class="center">
+          <video autoplay loop muted playsinline>
+            <source src="supper/header-interview.mp4" />
+          </video>
+        </div>
+      </div>
+
+      <div class="clear"></div>
+
+      <div id="supper-screens" class="container">
+        <div id="supper-screens-illo" class="scroll">
+          <figure><img id="blondi" src="supper/page-blondi.jpg" /></figure>
+          <figure><img id="leonard" src="supper/page-leonard.jpg" /></figure>
+          <figure>
+            <img id="beauty" src="supper/page-genuwine-beauty.jpg" />
+          </figure>
+          <figure><img id="max" src="supper/page-max.jpg" /></figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="robinsegg" class="section">
+    <!--- Higher Education --->
+
+    <div class="text">
+      <p><span>Higher Education Within Reach</span> Art Director</p>
+    </div>
+
+    <div id="higher-ed">
+      <div id="higher-ed-one" class="container">
+        <div id="higher-ed-one-illo" class="center">
+          <figure>
+            <img
+              src="gates-college-neighborhood/gates-college-collective.jpg"
+            />
+          </figure>
+        </div>
+      </div>
+      <div id="higher-ed-two" class="container">
+        <div id="higher-ed-two-illo" class="center">
+          <figure>
+            <img
+              src="gates-college-neighborhood/gates-college-neighborhood.jpg"
+            />
+          </figure>
+        </div>
+      </div>
+      <div id="higher-ed-three" class="container">
+        <div id="higher-ed-three-illo" class="center">
+          <figure>
+            <img src="gates-college-neighborhood/gates-the-course.jpg" />
+          </figure>
+        </div>
+      </div>
+      <div id="higher-ed-four" class="container">
+        <div id="higher-ed-four-illo" class="center">
+          <figure>
+            <img src="gates-college-neighborhood/gates-tech.jpg" />
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="ender"></div>
+
+  <div id="contact-end">
+    <p>tdevinrochford@gmail.com</p>
+  </div>
+
+  <!---<div id="part-five" class="section">
         <div class="text">
-            <p><span>Bloomberg View</span> Illustrator, Graphics</p>      
+            <p><span>Bloomberg View</span> Illustrator, Graphics</p>
         </div>
         <div id="tenth-illo" class="container">
             <img id="bloom1" src="sweetrent.svg">
@@ -1707,7 +1785,7 @@
     </div>
     <div id="part-six" class="section">
         <div class="text">
-            <p><span>The Trust Economy</span> Art Director, Developer</p>      
+            <p><span>The Trust Economy</span> Art Director, Developer</p>
         </div>
         <div class="container" id="trust-head">
             <div class="center" id="timeline-head">
@@ -1715,7 +1793,7 @@
             </div>
         </div>
     </div>
-    
+
     <div id="part-seven" class="section">
         <div class="container" id="timeline">
             <div class="center" id="timeline-vid">
@@ -1726,554 +1804,627 @@
         </div>
     </div>--->
 
-    <script>
-        
-        $(document).ready(function () {
-            $("body").css("background-color", "#f4f4f8");
-            $("#scroll").css("opacity", "1");
-        });
-        
-        $(window).on("scroll", function() {  
+  <script>
+    $(document).ready(function() {
+      $("body").css("background-color", "#f4f4f8");
+      $("#scroll").css("opacity", "1");
+    });
 
-            
-                /******* DESCRIPTIONS *********/
-            
-                if( 
-                    $(window).scrollTop() > $("body").offset().top &&
-                    ($(window).scrollTop() + $(window).innerHeight()) < $("#ender").offset().top
-                ) {
-                    $("#descriptions").css("bottom", "4%");
-                } else {
-                    $("#descriptions").css("bottom", "-100px");
-                }
-            
-                if( 
-                    ($(window).scrollTop() + $(window).innerHeight()) < $("#ender").offset().top
-                ) {
-                    $("#contact").css("top", "-100px");
-                } else {
-                    $("#contact").css("top", "4%");
-                }
-            
-                if( 
-                    $(window).scrollTop() > $("body").offset().top
-                ) {
-                    $("#scroll").css("opacity", "0");
-                } else {
-                    $("#scroll").css("opacity", "1");
-                }
-            
-            
-        if (window.matchMedia("(min-width: 900px)").matches) {    
-                /******* BACKGROUND COLOR CHANGE **********/    
-            
-                if(
-                    $(window).scrollTop() > $("#grey").offset().top && 
-                    $(window).scrollTop() < ($("#grey").offset().top + $("#grey").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "#f4f4f8",
-                        "color": "#95979f"
-                    });
-                    console.log("grey")
-                } else{
-                    $("body").css({
-                        "color": "#000"
-                    });
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#black").offset().top && 
-                    $(window).scrollTop() < ($("#black").offset().top + $("#black").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(238, 61, 51)", 
-                        "color": "#ffc6c4"
-                    });
-                    console.log("black")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#beige").offset().top && 
-                    $(window).scrollTop() < ($("#beige").offset().top + $("#beige").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(223, 217, 217)", 
-                        "color": "rgb(127, 115, 115)"
-                    });
-                    console.log("beige")
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#gunmetal").offset().top && 
-                    $(window).scrollTop() < ($("#gunmetal").offset().top + $("#gunmetal").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(39, 37, 39)", 
-                        "color": "rgb(157, 152, 149)"
-                    });
-                    console.log("gunmetal")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#maroon").offset().top && 
-                    $(window).scrollTop() < ($("#maroon").offset().top + $("#maroon").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "#1e1d1d", 
-                        "color": "rgb(151, 151, 151)"
-                    });
-                    console.log("maroon")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#black-two").offset().top -220 && 
-                    $(window).scrollTop() < ($("#black-two").offset().top + $("#black-two").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(0, 0, 0)", 
-                        "color": "rgb(149, 149, 149)"
-                    });
-                    console.log("black-two")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#purple").offset().top -200 && 
-                    $(window).scrollTop() < ($("#purple").offset().top + $("#purple").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(34, 26, 34)", 
-                        "color": "rgb(148, 128, 148)"
-                    });
-                    console.log("purple")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#brown").offset().top -200 && 
-                    $(window).scrollTop() < ($("#brown").offset().top + $("#brown").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(55, 42, 44)", 
-                        "color": "rgb(177, 157, 160)"
-                    });
-                    console.log("brown")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#light-grey").offset().top && 
-                    $(window).scrollTop() < ($("#light-grey").offset().top + $("#light-grey").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "#161412", 
-                        "color": "rgb(121, 118, 116)"
-                    });
-                    console.log("light-grey")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#black-three").offset().top -200 && 
-                    $(window).scrollTop() < ($("#black-three").offset().top + $("#black-three").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(21, 18, 21)", 
-                        "color": "rgb(164, 154, 133)"
-                    });
-                    console.log("black-three")
-                } 
-            
-            
-                if(
-                    $(window).scrollTop() > $("#eggshell").offset().top -200 && 
-                    $(window).scrollTop() < ($("#eggshell").offset().top + $("#eggshell").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(229, 220, 219)", 
-                        "color": "rgb(154, 144, 143)"
-                    });
-                    console.log("eggshell")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#midnight").offset().top && 
-                    $(window).scrollTop() < ($("#midnight").offset().top + $("#midnight").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "rgb(20, 20, 20)", 
-                        "color": "rgb(160, 160, 160)"
-                    });
-                    console.log("midnight")
-                } 
-            
-                if(
-                    $(window).scrollTop() > $("#robinsegg").offset().top -200 && 
-                    $(window).scrollTop() < ($("#robinsegg").offset().top + $("#robinsegg").outerHeight(true))
-                ) {
-                    $("body").css({
-                        "background-color": "#e7bbb1", 
-                        "color": "rgb(144, 106, 98)"
-                    });
-                    console.log("robinsegg")
-                } 
+    $(window).on("scroll", function() {
+      /******* DESCRIPTIONS *********/
+
+      if (
+        $(window).scrollTop() > $("body").offset().top &&
+        $(window).scrollTop() + $(window).innerHeight() <
+          $("#ender").offset().top
+      ) {
+        $("#descriptions").css("bottom", "4%");
+      } else {
+        $("#descriptions").css("bottom", "-100px");
+      }
+
+      if (
+        $(window).scrollTop() + $(window).innerHeight() <
+        $("#ender").offset().top
+      ) {
+        $("#contact").css("top", "-100px");
+      } else {
+        $("#contact").css("top", "4%");
+      }
+
+      if ($(window).scrollTop() > $("body").offset().top) {
+        $("#scroll").css("opacity", "0");
+      } else {
+        $("#scroll").css("opacity", "1");
+      }
+
+      if (window.matchMedia("(min-width: 900px)").matches) {
+        /******* BACKGROUND COLOR CHANGE **********/
+
+        if (
+          $(window).scrollTop() > $("#grey").offset().top &&
+          $(window).scrollTop() <
+            $("#grey").offset().top + $("#grey").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "#f4f4f8",
+            color: "#95979f"
+          });
+          console.log("grey");
         } else {
-            $("body").css({
-                "background-color": "rgb(240, 240, 245)", 
-            });
+          $("body").css({
+            color: "#000"
+          });
         }
 
-                /*******SHOWING AND HIDING FIXED IMAGES **********/
-            
-            
-                /* RESTORING */
-            
-            
-                if(
-                    $(window).scrollTop() > $("body").offset().top && 
-                    $(window).scrollTop() < ($("#restoring").offset().top + $("#restoring-screens").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Restoring the Promise of Public Education - <em>Art Director, Developer</em>");
-                }
-                
-                if(
-                    $(window).scrollTop() > $("#restoring-screens").offset().top - 200 && 
-                    $(window).scrollTop() < ($("#restoring-screens").offset().top + $("#restoring-screens").outerHeight(true))
-                ) {
-                    $("#restoring-screens-illo").addClass("show");
-                } else {
-                    $("#restoring-screens-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#restoring-video").offset().top && 
-                    $(window).scrollTop() < ($("#restoring-video").offset().top + $("#restoring-video").outerHeight(true))
-                ) {
-                    $("#restoring-video-illo").addClass("show");
-                } else {
-                    $("#restoring-video-illo").removeClass("show");
-                }
-            
-            
-                /* NORTHFACE */
-            
-                if(
-                    $(window).scrollTop() > $("#northface").offset().top && 
-                    $(window).scrollTop() < ($("#northface").offset().top + $("#northface").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Two Women Break Boundaries in the Most Isolated Corner of the World - <em>Art Director, Designer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#northface-title").offset().top && 
-                    $(window).scrollTop() < ($("#northface-title").offset().top + $("#northface-title").outerHeight(true))
-                ) {
-                    $("#northface-title-illo").addClass("show");
-                } else {
-                    $("#northface-title-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#northface-screen").offset().top - 200 && 
-                    $(window).scrollTop() < ($("#northface-screen").offset().top + $("#northface-screen").outerHeight(true))
-                ) {
-                    $("#northface-screen-illo").addClass("show");
-                } else {
-                    $("#northface-screen-illo").removeClass("show");
-                }
-            
-            
-                /* FAUDA */
-            
-                if(
-                    $(window).scrollTop() > $("#fauda").offset().top && 
-                    $(window).scrollTop() < ($("#fauda").offset().top + $("#fauda").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("A Land Divided - <em>Art Director, Designer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#fauda-title").offset().top && 
-                    $(window).scrollTop() < ($("#fauda-title").offset().top + $("#fauda-title").outerHeight(true))
-                ) {
-                    $("#fauda-title-illo").addClass("show");
-                } else {
-                    $("#fauda-title-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#fauda-voices").offset().top && 
-                    $(window).scrollTop() < ($("#fauda-voices").offset().top + $("#fauda-voices").outerHeight(true))
-                ) {
-                    $("#fauda-voices-illo").addClass("show");
-                } else {
-                    $("#fauda-voices-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#fauda-menu").offset().top && 
-                    $(window).scrollTop() < ($("#fauda-menu").offset().top + $("#fauda-menu").outerHeight(true))
-                ) {
-                    $("#fauda-menu-illo").addClass("show");
-                } else {
-                    $("#fauda-menu-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#fauda-map").offset().top && 
-                    $(window).scrollTop() < ($("#fauda-map").offset().top + $("#fauda-map").outerHeight(true))
-                ) {
-                    $("#fauda-map-illo").addClass("show");
-                } else {
-                    $("#fauda-map-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#fauda-video").offset().top && 
-                    $(window).scrollTop() < ($("#fauda-video").offset().top + $("#fauda-video").outerHeight(true))
-                ) {
-                    $("#fauda-video-illo").addClass("show");
-                } else {
-                    $("#fauda-video-illo").removeClass("show");
-                }
-            
-            
-                /* HOUR CHILDREN */
-            
-                if(
-                    $(window).scrollTop() > $("#hour").offset().top && 
-                    $(window).scrollTop() < ($("#hour").offset().top + $("#hour").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Keeping Families Together in the Aftermath of Prison - <em>Art Director, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#hour-gallery").offset().top -200 && 
-                    $(window).scrollTop() < ($("#hour-gallery").offset().top + $("#hour-gallery").outerHeight(true))
-                ) {
-                    $("#hour-gallery-illo").addClass("show");
-                } else {
-                    $("#hour-gallery-illo").removeClass("show");
-                }
-                
-            
-                /* NEPAL */
-            
-                if(
-                    $(window).scrollTop() > $("#nepal").offset().top && 
-                    $(window).scrollTop() < ($("#nepal").offset().top + $("#nepal").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Nepal, One Year Later - <em>Designer, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#nepal-title").offset().top && 
-                    $(window).scrollTop() < ($("#nepal-title").offset().top + $("#nepal-title").outerHeight(true))
-                ) {
-                    $("#nepal-title-center").addClass("show");
-                } else {
-                    $("#nepal-title-center").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#nepal-title-illo-one").offset().top && 
-                    $(window).scrollTop() < ($("#nepal-title-illo-three").offset().top + $("#nepal-title-illo-three").outerHeight(true))
-                ) {
-                    $("#title-one").addClass("show");
-                } else {
-                    $("#title-one").removeClass("show");
-                }
-                if(
-                    $(window).scrollTop() > $("#nepal-title-illo-two").offset().top && 
-                    $(window).scrollTop() < ($("#nepal-title-illo-three").offset().top + $("#nepal-title-illo-three").outerHeight(true))
-                ) {
-                    $("#title-two").addClass("show");
-                } else {
-                    $("#title-two").removeClass("show");
-                }
-                if(
-                    $(window).scrollTop() > $("#nepal-title-illo-three").offset().top && 
-                    $(window).scrollTop() < ($("#nepal-title-illo-three").offset().top + $("#nepal-title-illo-three").outerHeight(true))
-                ) {
-                    $("#title-three").addClass("show");
-                } else {
-                    $("#title-three").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#nepal-video").offset().top && 
-                    $(window).scrollTop() < ($("#nepal-video").offset().top + $("#nepal-video").outerHeight(true))
-                ) {
-                    $("#cath-amb").addClass("show");
-                } else {
-                    $("#cath-amb").removeClass("show");
-                }
-            
-                
-                /* SCIENCE OF THE THRILL */
-            
-                if(
-                    $(window).scrollTop() > $("#science").offset().top -200 && 
-                    $(window).scrollTop() < ($("#science").offset().top + $("#science").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("The Science of the Thrill - <em>Art Director, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#science-title").offset().top -200 && 
-                    $(window).scrollTop() < ($("#science-title").offset().top + $("#science-title").outerHeight(true))
-                ) {
-                    $("#science-title-illo").addClass("show");
-                } else {
-                    $("#science-title-illo").removeClass("show");
-                }
-            
-                
-                /* FREE MINDS */
-            
-                if(
-                    $(window).scrollTop() > $("#freeminds").offset().top -200 && 
-                    $(window).scrollTop() < ($("#freeminds").offset().top + $("#freeminds").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("A Criminal Past, an Unwritten Future - <em>Art Director, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#freeminds-header").offset().top  -200 && 
-                    $(window).scrollTop() < ($("#freeminds-header").offset().top + $("#freeminds-header").outerHeight(true))
-                ) {
-                    $("#freeminds-header-illo").addClass("show");
-                } else {
-                    $("#freeminds-header-illo").removeClass("show");
-                }
-            
-                /* ENDLESS POTENTIAL */
-                
-                if(
-                    $(window).scrollTop() > $("#unused-space").offset().top -200 && 
-                    $(window).scrollTop() < ($("#unused-space").offset().top + $("#unused-space").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("In Unused Space, Endless Potential - <em>Art Director, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#unused-space-header").offset().top -200 && 
-                    $(window).scrollTop() < ($("#unused-space-header").offset().top + $("#unused-space-header").outerHeight(true))
-                ) {
-                    $("#unused-space-header-illo").addClass("show");
-                } else {
-                    $("#unused-space-header-illo").removeClass("show");
-                }
-            
-                /* COLLATERAL */
-            
-                if(
-                    $(window).scrollTop() > $("#collateral").offset().top -200 && 
-                    $(window).scrollTop() < ($("#collateral").offset().top + $("#collateral").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Is There Hope for the Institutions That Have Failed Us? - <em>Art Director, Developer</em>");
-                }
-            
-                /* THIS IS SOLITARY */
-            
-                if(
-                    $(window).scrollTop() > $("#spike").offset().top -200 && 
-                    $(window).scrollTop() < ($("#spike").offset().top + $("#spike").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("This is Solitary - <em>Art Director</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#spike-title").offset().top -200 && 
-                    $(window).scrollTop() < ($("#spike-title").offset().top + $("#spike-title").outerHeight(true))
-                ) {
-                    $("#spike-title-illo").addClass("show");
-                } else {
-                    $("#spike-title-illo").removeClass("show");
-                }
-            
-                /* BUILDING */
-            
-                if(
-                    $(window).scrollTop() > $("#building").offset().top -200 && 
-                    $(window).scrollTop() < ($("#building").offset().top + $("#building").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Designing Impact - <em>Art Director, Developer</em>");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#building-title").offset().top -200 && 
-                    $(window).scrollTop() < ($("#building-title").offset().top + $("#building-title").outerHeight(true))
-                ) {
-                    $("#building-title-illo").addClass("show");
-                } else {
-                    $("#building-title-illo").removeClass("show");
-                }
-            
-                /* SUPPER CLUB */
-            
-                if(
-                    $(window).scrollTop() > $("#supper").offset().top && 
-                    $(window).scrollTop() < ($("#supper").offset().top + $("#supper").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("The Supper Club of Hell's Kitchen - <em>Art Director, Developer</em>");
-                }
+        if (
+          $(window).scrollTop() > $("#black").offset().top &&
+          $(window).scrollTop() <
+            $("#black").offset().top + $("#black").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(238, 61, 51)",
+            color: "#ffc6c4"
+          });
+          console.log("black");
+        }
 
-                if(
-                    $(window).scrollTop() > $("#supper-title").offset().top && 
-                    $(window).scrollTop() < ($("#supper-title").offset().top + $("#supper-title").outerHeight(true))
-                ) {
-                    $("#supper-title-illo").addClass("show");
-                } else {
-                    $("#supper-title-illo").removeClass("show");
-                }
-            
-            
-                /* HIGHER ED */
-            
-                if(
-                    $(window).scrollTop() > $("#higher-ed").offset().top -200 && 
-                    $(window).scrollTop() < ($("#higher-ed").offset().top + $("#higher-ed").outerHeight(true))
-                ) {
-                    $("#descriptions p").html("Higher Education Within Reach - <em>Art Director</em>");
-                }
-                
-                if(
-                    $(window).scrollTop() > $("#higher-ed-one").offset().top -200 && 
-                    $(window).scrollTop() < ($("#higher-ed-one").offset().top + $("#higher-ed-one").outerHeight(true))
-                ) {
-                    $("#higher-ed-one-illo").addClass("show");
-                } else {
-                    $("#higher-ed-one-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#higher-ed-two").offset().top -200 && 
-                    $(window).scrollTop() < ($("#higher-ed-two").offset().top + $("#higher-ed-two").outerHeight(true))
-                ) {
-                    $("#higher-ed-two-illo").addClass("show");
-                } else {
-                    $("#higher-ed-two-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#higher-ed-three").offset().top -200 && 
-                    $(window).scrollTop() < ($("#higher-ed-three").offset().top + $("#higher-ed-three").outerHeight(true))
-                ) {
-                    $("#higher-ed-three-illo").addClass("show");
-                } else {
-                    $("#higher-ed-three-illo").removeClass("show");
-                }
-            
-                if(
-                    $(window).scrollTop() > $("#higher-ed-four").offset().top -200 && 
-                    $(window).scrollTop() < ($("#higher-ed-four").offset().top + $("#higher-ed-four").outerHeight(true))
-                ) {
-                    $("#higher-ed-four-illo").addClass("show");
-                } else {
-                    $("#higher-ed-four-illo").removeClass("show");
-                }
-            
-            });
+        if (
+          $(window).scrollTop() > $("#beige").offset().top &&
+          $(window).scrollTop() <
+            $("#beige").offset().top + $("#beige").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(223, 217, 217)",
+            color: "rgb(127, 115, 115)"
+          });
+          console.log("beige");
+        }
 
-        
-    </script>
-    
+        if (
+          $(window).scrollTop() > $("#gunmetal").offset().top &&
+          $(window).scrollTop() <
+            $("#gunmetal").offset().top + $("#gunmetal").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(39, 37, 39)",
+            color: "rgb(157, 152, 149)"
+          });
+          console.log("gunmetal");
+        }
+
+        if (
+          $(window).scrollTop() > $("#maroon").offset().top &&
+          $(window).scrollTop() <
+            $("#maroon").offset().top + $("#maroon").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "#1e1d1d",
+            color: "rgb(151, 151, 151)"
+          });
+          console.log("maroon");
+        }
+
+        if (
+          $(window).scrollTop() > $("#black-two").offset().top - 220 &&
+          $(window).scrollTop() <
+            $("#black-two").offset().top + $("#black-two").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(0, 0, 0)",
+            color: "rgb(149, 149, 149)"
+          });
+          console.log("black-two");
+        }
+
+        if (
+          $(window).scrollTop() > $("#purple").offset().top - 200 &&
+          $(window).scrollTop() <
+            $("#purple").offset().top + $("#purple").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(34, 26, 34)",
+            color: "rgb(148, 128, 148)"
+          });
+          console.log("purple");
+        }
+
+        if (
+          $(window).scrollTop() > $("#brown").offset().top - 200 &&
+          $(window).scrollTop() <
+            $("#brown").offset().top + $("#brown").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(55, 42, 44)",
+            color: "rgb(177, 157, 160)"
+          });
+          console.log("brown");
+        }
+
+        if (
+          $(window).scrollTop() > $("#light-grey").offset().top &&
+          $(window).scrollTop() <
+            $("#light-grey").offset().top + $("#light-grey").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "#161412",
+            color: "rgb(121, 118, 116)"
+          });
+          console.log("light-grey");
+        }
+
+        if (
+          $(window).scrollTop() > $("#black-three").offset().top - 200 &&
+          $(window).scrollTop() <
+            $("#black-three").offset().top + $("#black-three").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(21, 18, 21)",
+            color: "rgb(164, 154, 133)"
+          });
+          console.log("black-three");
+        }
+
+        if (
+          $(window).scrollTop() > $("#eggshell").offset().top - 200 &&
+          $(window).scrollTop() <
+            $("#eggshell").offset().top + $("#eggshell").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(229, 220, 219)",
+            color: "rgb(154, 144, 143)"
+          });
+          console.log("eggshell");
+        }
+
+        if (
+          $(window).scrollTop() > $("#midnight").offset().top &&
+          $(window).scrollTop() <
+            $("#midnight").offset().top + $("#midnight").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "rgb(20, 20, 20)",
+            color: "rgb(160, 160, 160)"
+          });
+          console.log("midnight");
+        }
+
+        if (
+          $(window).scrollTop() > $("#robinsegg").offset().top - 200 &&
+          $(window).scrollTop() <
+            $("#robinsegg").offset().top + $("#robinsegg").outerHeight(true)
+        ) {
+          $("body").css({
+            "background-color": "#e7bbb1",
+            color: "rgb(144, 106, 98)"
+          });
+          console.log("robinsegg");
+        }
+      } else {
+        $("body").css({
+          "background-color": "rgb(240, 240, 245)"
+        });
+      }
+
+      /*******SHOWING AND HIDING FIXED IMAGES **********/
+
+      /* RESTORING */
+
+      if (
+        $(window).scrollTop() > $("body").offset().top &&
+        $(window).scrollTop() <
+          $("#restoring").offset().top +
+            $("#restoring-screens").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Restoring the Promise of Public Education - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#restoring-screens").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#restoring-screens").offset().top +
+            $("#restoring-screens").outerHeight(true)
+      ) {
+        $("#restoring-screens-illo").addClass("show");
+      } else {
+        $("#restoring-screens-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#restoring-video").offset().top &&
+        $(window).scrollTop() <
+          $("#restoring-video").offset().top +
+            $("#restoring-video").outerHeight(true)
+      ) {
+        $("#restoring-video-illo").addClass("show");
+      } else {
+        $("#restoring-video-illo").removeClass("show");
+      }
+
+      /* NORTHFACE */
+
+      if (
+        $(window).scrollTop() > $("#northface").offset().top &&
+        $(window).scrollTop() <
+          $("#northface").offset().top + $("#northface").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Two Women Break Boundaries in the Most Isolated Corner of the World - <em>Art Director, Designer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#northface-title").offset().top &&
+        $(window).scrollTop() <
+          $("#northface-title").offset().top +
+            $("#northface-title").outerHeight(true)
+      ) {
+        $("#northface-title-illo").addClass("show");
+      } else {
+        $("#northface-title-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#northface-screen").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#northface-screen").offset().top +
+            $("#northface-screen").outerHeight(true)
+      ) {
+        $("#northface-screen-illo").addClass("show");
+      } else {
+        $("#northface-screen-illo").removeClass("show");
+      }
+
+      /* FAUDA */
+
+      if (
+        $(window).scrollTop() > $("#fauda").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda").offset().top + $("#fauda").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "A Land Divided - <em>Art Director, Designer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#fauda-title").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda-title").offset().top + $("#fauda-title").outerHeight(true)
+      ) {
+        $("#fauda-title-illo").addClass("show");
+      } else {
+        $("#fauda-title-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#fauda-voices").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda-voices").offset().top + $("#fauda-voices").outerHeight(true)
+      ) {
+        $("#fauda-voices-illo").addClass("show");
+      } else {
+        $("#fauda-voices-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#fauda-menu").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda-menu").offset().top + $("#fauda-menu").outerHeight(true)
+      ) {
+        $("#fauda-menu-illo").addClass("show");
+      } else {
+        $("#fauda-menu-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#fauda-map").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda-map").offset().top + $("#fauda-map").outerHeight(true)
+      ) {
+        $("#fauda-map-illo").addClass("show");
+      } else {
+        $("#fauda-map-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#fauda-video").offset().top &&
+        $(window).scrollTop() <
+          $("#fauda-video").offset().top + $("#fauda-video").outerHeight(true)
+      ) {
+        $("#fauda-video-illo").addClass("show");
+      } else {
+        $("#fauda-video-illo").removeClass("show");
+      }
+
+      /* HOUR CHILDREN */
+
+      if (
+        $(window).scrollTop() > $("#hour").offset().top &&
+        $(window).scrollTop() <
+          $("#hour").offset().top + $("#hour").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Keeping Families Together in the Aftermath of Prison - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#hour-gallery").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#hour-gallery").offset().top + $("#hour-gallery").outerHeight(true)
+      ) {
+        $("#hour-gallery-illo").addClass("show");
+      } else {
+        $("#hour-gallery-illo").removeClass("show");
+      }
+
+      /* NEPAL */
+
+      if (
+        $(window).scrollTop() > $("#nepal").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal").offset().top + $("#nepal").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Nepal, One Year Later - <em>Designer, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#nepal-title").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal-title").offset().top + $("#nepal-title").outerHeight(true)
+      ) {
+        $("#nepal-title-center").addClass("show");
+      } else {
+        $("#nepal-title-center").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#nepal-title-illo-one").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal-title-illo-three").offset().top +
+            $("#nepal-title-illo-three").outerHeight(true)
+      ) {
+        $("#title-one").addClass("show");
+      } else {
+        $("#title-one").removeClass("show");
+      }
+      if (
+        $(window).scrollTop() > $("#nepal-title-illo-two").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal-title-illo-three").offset().top +
+            $("#nepal-title-illo-three").outerHeight(true)
+      ) {
+        $("#title-two").addClass("show");
+      } else {
+        $("#title-two").removeClass("show");
+      }
+      if (
+        $(window).scrollTop() > $("#nepal-title-illo-three").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal-title-illo-three").offset().top +
+            $("#nepal-title-illo-three").outerHeight(true)
+      ) {
+        $("#title-three").addClass("show");
+      } else {
+        $("#title-three").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#nepal-video").offset().top &&
+        $(window).scrollTop() <
+          $("#nepal-video").offset().top + $("#nepal-video").outerHeight(true)
+      ) {
+        $("#cath-amb").addClass("show");
+      } else {
+        $("#cath-amb").removeClass("show");
+      }
+
+      /* SCIENCE OF THE THRILL */
+
+      if (
+        $(window).scrollTop() > $("#science").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#science").offset().top + $("#science").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "The Science of the Thrill - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#science-title").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#science-title").offset().top +
+            $("#science-title").outerHeight(true)
+      ) {
+        $("#science-title-illo").addClass("show");
+      } else {
+        $("#science-title-illo").removeClass("show");
+      }
+
+      /* FREE MINDS */
+
+      if (
+        $(window).scrollTop() > $("#freeminds").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#freeminds").offset().top + $("#freeminds").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "A Criminal Past, an Unwritten Future - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#freeminds-header").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#freeminds-header").offset().top +
+            $("#freeminds-header").outerHeight(true)
+      ) {
+        $("#freeminds-header-illo").addClass("show");
+      } else {
+        $("#freeminds-header-illo").removeClass("show");
+      }
+
+      /* ENDLESS POTENTIAL */
+
+      if (
+        $(window).scrollTop() > $("#unused-space").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#unused-space").offset().top + $("#unused-space").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "In Unused Space, Endless Potential - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#unused-space-header").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#unused-space-header").offset().top +
+            $("#unused-space-header").outerHeight(true)
+      ) {
+        $("#unused-space-header-illo").addClass("show");
+      } else {
+        $("#unused-space-header-illo").removeClass("show");
+      }
+
+      /* COLLATERAL */
+
+      if (
+        $(window).scrollTop() > $("#collateral").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#collateral").offset().top + $("#collateral").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Is There Hope for the Institutions That Have Failed Us? - <em>Art Director, Developer</em>"
+        );
+      }
+
+      /* THIS IS SOLITARY */
+
+      if (
+        $(window).scrollTop() > $("#spike").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#spike").offset().top + $("#spike").outerHeight(true)
+      ) {
+        $("#descriptions p").html("This is Solitary - <em>Art Director</em>");
+      }
+
+      if (
+        $(window).scrollTop() > $("#spike-title").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#spike-title").offset().top + $("#spike-title").outerHeight(true)
+      ) {
+        $("#spike-title-illo").addClass("show");
+      } else {
+        $("#spike-title-illo").removeClass("show");
+      }
+
+      /* BUILDING */
+
+      if (
+        $(window).scrollTop() > $("#building").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#building").offset().top + $("#building").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Designing Impact - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#building-title").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#building-title").offset().top +
+            $("#building-title").outerHeight(true)
+      ) {
+        $("#building-title-illo").addClass("show");
+      } else {
+        $("#building-title-illo").removeClass("show");
+      }
+
+      /* SUPPER CLUB */
+
+      if (
+        $(window).scrollTop() > $("#supper").offset().top &&
+        $(window).scrollTop() <
+          $("#supper").offset().top + $("#supper").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "The Supper Club of Hell's Kitchen - <em>Art Director, Developer</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#supper-title").offset().top &&
+        $(window).scrollTop() <
+          $("#supper-title").offset().top + $("#supper-title").outerHeight(true)
+      ) {
+        $("#supper-title-illo").addClass("show");
+      } else {
+        $("#supper-title-illo").removeClass("show");
+      }
+
+      /* HIGHER ED */
+
+      if (
+        $(window).scrollTop() > $("#higher-ed").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#higher-ed").offset().top + $("#higher-ed").outerHeight(true)
+      ) {
+        $("#descriptions p").html(
+          "Higher Education Within Reach - <em>Art Director</em>"
+        );
+      }
+
+      if (
+        $(window).scrollTop() > $("#higher-ed-one").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#higher-ed-one").offset().top +
+            $("#higher-ed-one").outerHeight(true)
+      ) {
+        $("#higher-ed-one-illo").addClass("show");
+      } else {
+        $("#higher-ed-one-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#higher-ed-two").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#higher-ed-two").offset().top +
+            $("#higher-ed-two").outerHeight(true)
+      ) {
+        $("#higher-ed-two-illo").addClass("show");
+      } else {
+        $("#higher-ed-two-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#higher-ed-three").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#higher-ed-three").offset().top +
+            $("#higher-ed-three").outerHeight(true)
+      ) {
+        $("#higher-ed-three-illo").addClass("show");
+      } else {
+        $("#higher-ed-three-illo").removeClass("show");
+      }
+
+      if (
+        $(window).scrollTop() > $("#higher-ed-four").offset().top - 200 &&
+        $(window).scrollTop() <
+          $("#higher-ed-four").offset().top +
+            $("#higher-ed-four").outerHeight(true)
+      ) {
+        $("#higher-ed-four-illo").addClass("show");
+      } else {
+        $("#higher-ed-four-illo").removeClass("show");
+      }
+    });
+  </script>
 </body>
